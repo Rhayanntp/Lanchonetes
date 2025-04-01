@@ -20,6 +20,15 @@ class Create extends Component
         return view('livewire.lanchonete.create');
     }
 
+    protected $rules = [
+        'nome' => 'required|string|max:80',
+        'endereco' => 'required|string|max:60',
+        'telefone' => 'required|string|max:20',
+        'cpf' => 'required|cpf|unique:clientes',
+        'email' => 'required|email|unique:clientes',
+        'password' => 'required|min:6',
+    ];
+
     public function store(){
         Cliente::create([
         'nome' => $this->nome,
