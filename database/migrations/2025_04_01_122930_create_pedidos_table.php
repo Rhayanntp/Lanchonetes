@@ -17,8 +17,8 @@ return new class extends Migration
             $table->dateTime('data_hora')->nullable(false);
             $table->decimal('valor_total', 10, 2)->nullable(false);
             $table->decimal('valor_com_desconto', 10, 2)->nullable(false);
-            $table->string('forma_pagamento', ['cartao_credito', 'cartao_debito', 'pix', 'dinheiro']);
-            $table->string('status', ['em_aberto', 'aguardando_preparo', 'em_preparo', 'em_rota', 'entregue']);
+            $table->enum('forma_pagamento', ['cartao_credito', 'cartao_debito', 'pix', 'dinheiro']);
+            $table->enum('status', ['em_aberto', 'aguardando_preparo', 'em_preparo', 'em_rota', 'entregue']);
             $table->timestamps();
         });
     }
