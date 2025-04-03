@@ -5,21 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Produto extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'nome',
-        'endereço',
-        'telefone',
-        'cpf',
-        'email',
-        'password'
+        'ingredientes',
+        'valor',
+        'imagem'  
     ];
 
-    public function pedidos()
+    public function itensPedido()
     {
-        return $this->hasMany(Pedido::class);
+        return $this->hasMany(ItemPedido::class);
     }
 }
